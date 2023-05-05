@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <NavBar />
-      <ItemListContainer greetings={'Bienvenidos a TecnoShop'}/>
+      <ItemListContainer greetings={'Bienvenidos a GameShop'}/>
     </>
   )
 }
