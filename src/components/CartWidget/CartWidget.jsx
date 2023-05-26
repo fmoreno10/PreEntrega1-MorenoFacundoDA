@@ -1,3 +1,4 @@
+import './CartWidget.css'
 import cart from '../../assets/carrito.jpg';
 
 const CartWidget = () => {

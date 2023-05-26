@@ -1,15 +1,16 @@
+import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount";
 
 const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
     return (
-        <article className="CardItem">
-            <header className="Header">
+        <article className="CardItem d-flex flex-column">
+            <header className="Header align-self-center">
                 <h2 className="ItemHeader">{name}</h2>
             </header>
-            <picture>
-                <img src={img} alt={name} className="ItemImg" />
+            <picture className="align-self-center">
+                <img src={img} alt={name} className="img-thumbnail rounded" />
             </picture>
-            <section>
+            <section className="align-self-center">
                 <p className="Info">
                     Categoría: {category}
                 </p>
@@ -20,7 +21,7 @@ const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
                     Precio: ${price}
                 </p>
             </section>
-            <footer className="ItemFooter">
+            <footer className="ItemFooter align-self-center">
                 <ItemCount initial={1} stock={stock} onAdd={(quantity) => console.log("Cantidad Agregada: ", quantity)} />
             </footer>
         </article>

@@ -1,0 +1,8 @@
+.CardItem img{
+    transition: all .3s;
+}
+
+.CardItem img:hover{
+    filter: drop-shadow(0 0 0.5em #cee0e9);
+    transform: scale(1.03, 1.03);
+}

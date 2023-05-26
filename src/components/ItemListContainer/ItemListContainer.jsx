@@ -11,14 +11,16 @@ const ItemListContainer = () => {
         const asyncFunc = categoryId ? getProductsByCategory : getProducts;
 
         asyncFunc(categoryId)
-        .then( response => setProducts(response))
-        .catch(error => console.error(error))
-        }, [categoryId]);
+            .then(response => setProducts(response))
+            .catch(error => console.error(error))
+    }, [categoryId]);
 
     return (
-        <div>            
-            <ItemList products={products} />
-        </div>
+        <main>
+            <div className="album py-5 bg-light">
+                <ItemList products={products} />
+            </div>
+        </main>
     );
 }
 

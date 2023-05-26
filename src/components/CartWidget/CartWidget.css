@@ -1,0 +1,21 @@
+#carrito {
+    margin-right: 20px;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    padding: 4px;
+
+}
+
+#carrito:hover {
+    border: 1px solid #dbd9d9;
+    padding: 3px;
+
+}
+
+#agregadoCarrito {
+    position: relative;
+    right: 53px;
+    bottom: 21px;
+    visibility: visible;
+}
