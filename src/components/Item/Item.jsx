@@ -1,15 +1,15 @@
 import './Item.css'
 import { Link } from "react-router-dom";
 
-const Item = ({ id, name, price, img, stock }) => {
+const Item = ({ id, title, price, img, stock }) => {
     return (
         <div className="col d-flex align-items-stretch">
             <div className="card shadow-sm">
                 <header className="d-flex justify-content-center">
-                    <h2 className="m-3">{name}</h2>
+                    <h2 className="m-3">{title}</h2>
                 </header>
                 <picture>
-                    <img src={img} alt={name} className="card-img-top img-thumbnail rounded" />
+                    <img src={img} alt={title} className="card-img-top img-thumbnail rounded" />
                 </picture>
                 <section className="d-flex flex-column align-items-center m-2">
                     <p className="Info">

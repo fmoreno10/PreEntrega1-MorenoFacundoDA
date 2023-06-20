@@ -1,14 +1,14 @@
 import './ItemDetail.css'
 import ItemCount from "../ItemCount/ItemCount";
 
-const ItemDetail = ({ id, name, img, category, description, price, stock }) => {
+const ItemDetail = ({ id, title, img, category, description, price, stock }) => {
     return (
         <article className="CardItem d-flex flex-column">
             <header className="Header align-self-center">
-                <h2 className="ItemHeader">{name}</h2>
+                <h2 className="ItemHeader">{title}</h2>
             </header>
             <picture className="align-self-center">
-                <img src={img} alt={name} className="img-thumbnail rounded" />
+                <img src={img} alt={title} className="img-thumbnail rounded" />
             </picture>
             <section className="align-self-center">
                 <p className="Info">
