@@ -20,14 +20,7 @@ const NavBar = () => {
                         <li><NavLink to={`/category/smart tvs`} className="nav-link px-2 link-dark">Smart TVs</NavLink></li>
                         <li><NavLink to={`/category/informatica`} className="nav-link px-2 link-dark">Informatica</NavLink></li>
                     </ul>
-
-                    <form id="frmBuscar" className="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3 d-flex flex-row" role="search">
-                        <input id="textoABuscar" type="search" className="form-control pe-5" placeholder="Buscar"
-                            aria-label="Search" />
-                            <button id="btnBuscar" type="button"
-                                className="btn btn-sm btn-outline-primary mx-3 px-5">Buscar</button>
-                    </form>
-
+                    
                     <CartWidget />
 
                 </div>

@@ -28,68 +28,33 @@ export async function getData() {
 export async function getItemData(idURL) {
     const docRef = doc(db, "products", idURL);
     const docSnap = await getDoc(docRef);
+    // Verificar que existe, si no lanza un error
+    if (!docSnap.exists()) {
+        throw new Error("Error: producto no encontrado");
+    }
     return { id: docSnap.id, ...docSnap.data() };
-    // Verificar que existe .exists()
-    /*if (docSnap.exists()) {
-        console.log("Document data:", docSnap.data());
-        } else {
-        // docSnap.data() will be undefined in this case
-        console.log("No such document!");
-        }
-      */
-}
-export async function getCategoryData(idCategory) { 
-    /*
-    const q = query(collection(db, "cities"), where("capital", "==", true));
 
-const querySnapshot = await getDocs(q);
-querySnapshot.forEach((doc) => {
-  // doc.data() is never undefined for query doc snapshots
-    console.log(doc.id, " => ", doc.data());
-});
-    */
+}
+export async function getCategoryData(idCategory) {
+
     const productsCollectionRef = collection(db, "products");
     const q = query(productsCollectionRef, where("category", "==", idCategory));
 
     const querySnapshot = await getDocs(q);
-    const dataDocs = querySnapshot.docs.map( doc => {
-        return { ...doc.data(), id: doc.id};
+    const dataDocs = querySnapshot.docs.map(doc => {
+        return { ...doc.data(), id: doc.id };
     });
 
     return dataDocs;
 
 }
 
-export async function createOrder(data){
+export async function createOrder(data) {
+
     const ordersCollectionRef = collection(db, "orders"); // si no existe, la crea
+
     const response = await addDoc(ordersCollectionRef, data);
-    // response.id id de la orden creada
+
+    return response.id; // id de la orden creada
 
 }
-
-export const getProducts = () => {
-    return new Promise((resolve) => {
-        setTimeout(() => { resolve(products) }, 500);
-    }
-    );
-};
-
-export const getProductById = (productId) => {
-    return new Promise((resolve) => {
-        setTimeout(() => { resolve(products.find(prod => prod.id === productId)) }, 500);
-    }
-    );
-};
-
-export const getProductsByCategory = (category) => {
-    return new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(products.filter(prod => {
-                let sCategoriaMinusculas = prod.categoria.toLowerCase();
-                let sCategoriaBuscarMinusculas = category.toLowerCase();
-                return sCategoriaMinusculas.includes(sCategoriaBuscarMinusculas);
-            }))
-        }, 500);
-    }
-    );
-};
